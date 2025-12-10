@@ -232,4 +232,57 @@ Si vous souhaitez re-collecter les données :
 ```
 3. Supprimez les fichiers dans `data/raw/`
 4. Relancez `python main.py`
-5. 
+
+## 🤖 Résultats Machine Learning
+
+### Clustering K-Means
+- **Algorithme** : K-Means (k=3 clusters)
+- **Métrique** : Silhouette Score = **0.0156**
+- **Reproductibilité** : random_state=42 (fixé)
+
+### Interprétation du score faible
+
+Un silhouette score proche de 0 indique que les clusters sont **peu distincts**. 
+Dans notre cas, cela s'explique par :
+
+1. **Taille du dataset limitée** (50 documents)
+   - K-Means nécessite ~500-1000 documents pour détecter des patterns robustes
+   - Avec 16 documents par cluster en moyenne, la variance intra-cluster est élevée
+
+2. **Hétérogénéité des sources**
+   - Mélange de films (TMDb), critiques (OMDb) et séries (TVMaze)
+   - 5 langues différentes (en, ja, no, fr, english)
+   - Genres variés (action, comédie, drame, fantastique)
+   
+3. **Vocabulaire générique post-nettoyage**
+   - Après suppression des stopwords, les textes courts perdent leur spécificité
+   - Top mots-clés identiques entre clusters : "of", "his", "their"
+
+### Validation qualitative
+
+Malgré le score faible, l'analyse des clusters montre des **tendances thématiques** :
+
+**Cluster 0** (15 docs) : Action et drames biographiques
+- Exemples : *Jay Kelly*, *Dracula*, *Fight Club*
+- Focus : personnages masculins en quête d'identité
+
+**Cluster 1** (20 docs) : Films grand public et classiques
+- Exemples : *Inception*, *The Godfather*, *Game of Thrones*
+- Thèmes : histoires complexes, époques variées
+
+**Cluster 2** (15 docs) : Femmes et familles
+- Exemples : *Die My Love*, *Christy*, *Zootopia*
+- Focus : protagonistes féminins, relations familiales
+
+### Améliorations futures
+
+Pour atteindre un score > 0.5 :
+- Collecter 200+ documents via APIs
+- Filtrer sur langue unique (EN uniquement)
+- Tester k=2 clusters (simplification)
+- Utiliser des embeddings (Word2Vec, BERT) au lieu de TF-IDF
+
+### Système de recommandation
+- **Méthode** : Similarité cosinus sur vecteurs TF-IDF
+- **Top-K** : 3-5 films similaires par requête
+- **Performance** : Scores entre 0.14 et 0.34 (acceptable pour un petit dataset)

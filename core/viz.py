@@ -16,13 +16,13 @@ DATA_DIR = Path("data")
 
 
 def load_data():
-    with open(DATA_DIR / "processed" / "clean_data.json", "r") as f:
+    with open(DATA_DIR / "processed" / "clean_data.json", "r", encoding='utf-8') as f:
         clean_data = json.load(f)
 
-    with open(DATA_DIR / "processed" / "ml_results.json", "r") as f:
+    with open(DATA_DIR / "processed" / "ml_results.json", "r", encoding='utf-8') as f:
         ml_results = json.load(f)
 
-    with open(DATA_DIR / "raw" / "api_stats.json", "r") as f:
+    with open(DATA_DIR / "raw" / "api_stats.json", "r", encoding='utf-8') as f:
         api_stats = json.load(f)
 
     return clean_data, ml_results, api_stats
