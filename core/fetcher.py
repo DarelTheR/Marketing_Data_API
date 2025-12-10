@@ -251,13 +251,3 @@ def run_all_fetchers() -> None:
     logger.info(f"Stats API sauvegardées : {stats_path}")
     
     logger.info("=== Collecte terminée ===")
-
-def save_api_stats(stats: Dict[str, Any]) -> Path:
-    """
-    Sauvegarde les statistiques des appels API.
-    """
-    stats_path = config.RAW_DIR / "api_stats.json"
-    with stats_path.open("w", encoding="utf-8") as f:
-        json.dump(stats, f, indent=2, ensure_ascii=False)
-    logger.info(f"Stats API sauvegardées : {stats_path}")
-    return stats_path
