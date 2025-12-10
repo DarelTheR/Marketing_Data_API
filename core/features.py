@@ -57,12 +57,14 @@ def create_tfidf_features(texts, max_features=500, ngram_range=(1, 2), min_df=2)
     logger.info("Création de la matrice TF-IDF...")
     
     vectorizer = TfidfVectorizer(
-        max_features=max_features,
-        ngram_range=ngram_range,
-        min_df=min_df,
-        stop_words='english',
+        max_features=300,
+        ngram_range=(1, 2),
+        min_df=1,
+        max_df=0.95,
+        stop_words=None,
         lowercase=True,
-        strip_accents='ascii'
+        strip_accents='ascii',
+        token_pattern=r'\b[a-z]{2,}\b'
     )
     
     # Transformation des textes en matrice TF-IDF

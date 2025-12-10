@@ -43,29 +43,27 @@ def load_models_and_data(vectorizer_path='data/models/vectorizer.pkl'):
         raise
 
 def find_similar_movies(query_text, vectorizer, texts, titles, top_k=5):
-    """
-    Trouve les films les plus similaires à une requête textuelle.
-    
-    Args:
-        query_text (str): Texte de recherche (ex: "epic space adventure")
-        vectorizer: Vectorizer TF-IDF entraîné
-        texts (list): Liste des textes de films
-        titles (list): Liste des titres de films
-        top_k (int): Nombre de recommandations à retourner
-        
-    Returns:
-        list: Liste de tuples (titre, score_similarité)
-    """
     logger.info(f"Recherche de films similaires à: '{query_text}'")
     
     # Vectoriser la requête
     query_vector = vectorizer.transform([query_text.lower()])
+    
+    # DEBUG : Vérifier que le vecteur n'est pas vide
+    if query_vector.sum() == 0:
+        logger.warning(f"⚠️ Requête '{query_text}' produit un vecteur vide!")
+        # Fallback : chercher dans les titres directement
+        matches = [(titles[i], 0.5) for i, t in enumerate(texts) 
+                   if any(word in t for word in query_text.lower().split())]
+        return matches[:top_k] if matches else [(titles[0], 0.1)]
     
     # Vectoriser tous les textes de films
     films_vectors = vectorizer.transform(texts)
     
     # Calculer la similarité cosinus
     similarities = cosine_similarity(query_vector, films_vectors)[0]
+    
+    # DEBUG : Afficher la distribution des scores
+    logger.info(f"Scores min/max/mean: {similarities.min():.3f}/{similarities.max():.3f}/{similarities.mean():.3f}")
     
     # Trouver les indices des films les plus similaires
     top_indices = similarities.argsort()[-top_k:][::-1]
@@ -108,19 +106,13 @@ def recommend_by_genre(cluster_predictions, titles, target_cluster, top_k=3):
 def create_recommendation_report(sample_queries=None):
     """
     Crée un rapport de test avec des exemples de recommandations.
-    
-    Args:
-        sample_queries (list): Liste de requêtes de test
-        
-    Returns:
-        dict: Rapport avec exemples de recommandations
     """
     if sample_queries is None:
         sample_queries = [
-            "epic space adventure",
-            "funny superhero comedy",
-            "scary horror monster",
-            "action car racing"
+            "dangerous battle brutal crime",
+            "love family daughter life",
+            "breaking bad criminal world",
+            "confront dangerous past city"
         ]
     
     try:

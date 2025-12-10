@@ -32,10 +32,10 @@ def train_clustering(X, n_clusters=5, random_state=42):
     logger.info(f"Entraînement K-Means avec {n_clusters} clusters...")
     
     model = KMeans(
-        n_clusters=n_clusters,
-        random_state=random_state,
-        n_init=10,
-        max_iter=300
+        n_clusters=3,
+        random_state=42,
+        n_init=20,
+        max_iter=500
     )
     
     # Entraînement et prédictions

@@ -19,13 +19,15 @@ PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
 # ============ Stopwords ============
 
 FR_STOPWORDS = {
-    "et", "ou", "les", "des", "de", "du", "la", "le", "un", "une", "au", "aux",
-    "en", "dans", "pour", "par", "avec", "ce", "ces", "ceci", "cela", "ça",
-    "sur", "sous", "ne", "pas", "plus", "moins", "comme", "que", "qui",
-    "dont", "où", "quand", "mais", "car", "donc", "or", "ni", "si",
+    "et", "ou", "les", "des", "de", "du", "la", "le", "un", "une"
 }
 
-STOPWORDS = set(ENGLISH_STOP_WORDS) | FR_STOPWORDS
+
+MINIMAL_EN_STOPWORDS = {
+    "the", "a", "an", "and", "or", "but", "in", "on", "at", "to", "for"
+}
+
+STOPWORDS = FR_STOPWORDS | MINIMAL_EN_STOPWORDS 
 
 HTML_TAG_RE = re.compile(r"<.*?>", flags=re.DOTALL)
 PUNCTUATION_RE = re.compile(r"[^\w\s]", flags=re.UNICODE)
