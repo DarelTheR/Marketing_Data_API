@@ -13,7 +13,7 @@ import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-def load_clean_data(filepath='data/processed/clean_data.json'):
+def load_clean_data(filepath='data/processed/clean_data_ml.json'):
     """
     Charge les données nettoyées depuis le fichier JSON.
     
