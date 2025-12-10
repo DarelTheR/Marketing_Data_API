@@ -29,7 +29,7 @@ def load_models_and_data(vectorizer_path='data/models/vectorizer.pkl'):
         vectorizer = joblib.load(vectorizer_path)
         
         # Charger les données clean
-        with open('data/processed/clean_data.json', 'r', encoding='utf-8') as f:
+        with open('data/processed/clean_data_ml.json', 'r', encoding='utf-8') as f:
             data = json.load(f)
         
         texts = data['texts']

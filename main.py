@@ -48,12 +48,11 @@ def run_data_pipeline():
         
         # Collecte des données brutes
         logger.info("Collecte des données depuis les APIs...")
-        raw_data = fetcher.fetch_all_sources()
+        fetcher.run_all_fetchers()
         
         # Nettoyage et structuration
         logger.info("Nettoyage et structuration des données...")
-        clean_data = cleaner.process_raw_data(raw_data)
-        cleaner.save_clean_data(clean_data)
+        cleaner.run_cleaning()
         
         logger.info("✅ Pipeline de données terminé")
         return True

@@ -55,3 +55,127 @@
 2025-12-10 01:09:52,719 [INFO] core.analyzer - summary.json sauvegardé : reports\summary.json
 2025-12-10 01:09:52,723 [INFO] core.analyzer - keywords.csv sauvegardé : reports\keywords.csv
 2025-12-10 01:09:52,723 [INFO] core.analyzer - === Analyse terminée ===
+2025-12-10 17:59:01,200 - __main__ - INFO - Structure de répertoires vérifiée
+2025-12-10 17:59:01,200 - __main__ - INFO - === ÉTAPE 1: PIPELINE DE DONNÉES ===
+2025-12-10 17:59:02,291 - __main__ - INFO - Collecte des données depuis les APIs...
+2025-12-10 17:59:02,291 - core.fetcher - INFO - === Début de la collecte API ===
+2025-12-10 17:59:02,291 - core.fetcher - INFO - Collecte TMDb...
+2025-12-10 17:59:02,291 - core.fetcher - ERROR - TMDB_API_KEY manquante (None). Vérifie ton fichier .env.
+2025-12-10 17:59:02,291 - core.fetcher - INFO - TMDb: 0 éléments récupérés
+2025-12-10 17:59:02,291 - core.fetcher - INFO - Collecte OMDb...
+2025-12-10 17:59:02,291 - core.fetcher - ERROR - OMDB_API_KEY manquante (None). Vérifie ton fichier .env.
+2025-12-10 17:59:02,291 - core.fetcher - INFO - OMDb: 0 éléments récupérés
+2025-12-10 17:59:02,291 - core.fetcher - INFO - Collecte TVMaze...
+2025-12-10 17:59:02,382 - core.fetcher - INFO - FETCH tvmaze - https://api.tvmaze.com/shows/1 - status=200 latency=0.091s
+2025-12-10 17:59:02,483 - core.fetcher - INFO - FETCH tvmaze - https://api.tvmaze.com/shows/82 - status=200 latency=0.100s
+2025-12-10 17:59:02,569 - core.fetcher - INFO - FETCH tvmaze - https://api.tvmaze.com/shows/431 - status=200 latency=0.084s
+2025-12-10 17:59:02,655 - core.fetcher - INFO - FETCH tvmaze - https://api.tvmaze.com/shows/169 - status=200 latency=0.085s
+2025-12-10 17:59:02,740 - core.fetcher - INFO - FETCH tvmaze - https://api.tvmaze.com/shows/143 - status=200 latency=0.085s
+2025-12-10 17:59:02,742 - core.fetcher - INFO - Données brutes sauvegardées dans data\raw\tvmaze_shows_raw.json
+2025-12-10 17:59:02,742 - core.fetcher - INFO - TVMaze: 5 éléments récupérés
+2025-12-10 17:59:02,742 - core.fetcher - INFO - Stats API sauvegardées : data\raw\api_stats.json
+2025-12-10 17:59:02,743 - core.fetcher - INFO - === Collecte terminée ===
+2025-12-10 17:59:02,743 - __main__ - INFO - Nettoyage et structuration des données...
+2025-12-10 17:59:02,745 - core.cleaner - INFO - TMDb nettoyé : 40 enregistrements
+2025-12-10 17:59:02,745 - core.cleaner - INFO - OMDb nettoyé : 5 enregistrements
+2025-12-10 17:59:02,758 - core.cleaner - INFO - TVMaze nettoyé : 5 enregistrements
+2025-12-10 17:59:02,758 - core.cleaner - INFO - Total enregistrements nettoyés : 50
+2025-12-10 17:59:02,760 - core.cleaner - INFO - Format ML sauvegardé : data\processed\clean_data_ml.json
+2025-12-10 17:59:02,760 - __main__ - INFO - ✅ Pipeline de données terminé
+2025-12-10 17:59:02,761 - __main__ - INFO - === ÉTAPE 2: MACHINE LEARNING ===
+2025-12-10 17:59:02,885 - __main__ - INFO - Extraction des features TF-IDF...
+2025-12-10 17:59:02,922 - core.features - INFO - Données chargées: 50 textes de 3 sources
+2025-12-10 17:59:02,922 - core.features - INFO - Création de la matrice TF-IDF...
+2025-12-10 17:59:02,928 - core.features - INFO - Matrice TF-IDF créée: 50 documents x 189 features
+2025-12-10 17:59:02,928 - core.features - INFO - Densité de la matrice: 0.0537
+2025-12-10 17:59:02,931 - core.features - INFO - Features sauvegardées: data/processed/features.npz
+2025-12-10 17:59:02,934 - core.features - INFO - Vectorizer sauvegardé: data/models/vectorizer.pkl
+2025-12-10 17:59:02,934 - __main__ - INFO - Entraînement du modèle ML...
+2025-12-10 17:59:02,934 - core.model - INFO - Entraînement K-Means avec 5 clusters...
+2025-12-10 17:59:06,667 - core.model - INFO - Clustering terminé. Silhouette score: 0.018
+2025-12-10 17:59:06,669 - core.model - INFO - Distribution des clusters: Counter({np.int32(0): 13, np.int32(4): 13, np.int32(2): 12, np.int32(3): 8, np.int32(1): 4})
+2025-12-10 17:59:06,669 - core.model - INFO - Analyse des clusters terminée pour 5 clusters
+2025-12-10 17:59:06,670 - core.model - INFO - Modèle sauvegardé: data/models/model.pkl
+2025-12-10 17:59:06,670 - core.model - INFO - Résultats sauvegardés: data/processed/ml_results.json
+2025-12-10 17:59:06,670 - __main__ - INFO - Test du système de recommandation...
+2025-12-10 17:59:06,679 - core.recommender - INFO - Modèles chargés: 50 films disponibles
+2025-12-10 17:59:06,681 - core.recommender - INFO - Recherche de films similaires à: 'epic space adventure'
+2025-12-10 17:59:06,684 - core.recommender - INFO - Top 3 recommandations trouvées
+2025-12-10 17:59:06,684 - core.recommender - INFO - Recherche de films similaires à: 'funny superhero comedy'
+2025-12-10 17:59:06,685 - core.recommender - INFO - Top 3 recommandations trouvées
+2025-12-10 17:59:06,687 - core.recommender - INFO - Recherche de films similaires à: 'scary horror monster'
+2025-12-10 17:59:06,688 - core.recommender - INFO - Top 3 recommandations trouvées
+2025-12-10 17:59:06,688 - core.recommender - INFO - Recherche de films similaires à: 'action car racing'
+2025-12-10 17:59:06,691 - core.recommender - INFO - Top 3 recommandations trouvées
+2025-12-10 17:59:06,693 - core.recommender - INFO - Rapport de recommandations créé
+2025-12-10 17:59:06,693 - __main__ - INFO - ✅ Pipeline ML terminé
+2025-12-10 17:59:06,693 - __main__ - INFO - === ÉTAPE 3: ANALYTICS & VISUALISATION ===
+2025-12-10 17:59:07,021 - __main__ - INFO - Génération des visualisations...
+2025-12-10 17:59:07,021 - core.viz - INFO - === Module viz.py - À IMPLÉMENTER PAR LYES ===
+2025-12-10 17:59:07,021 - core.viz - WARNING - ⚠️  Les visualisations ne sont pas encore générées.
+2025-12-10 17:59:07,023 - core.viz - WARNING - ⚠️  Lyes doit implémenter les fonctions de ce module.
+2025-12-10 17:59:07,023 - __main__ - INFO - ✅ Pipeline analytics terminé
+2025-12-10 17:59:07,023 - __main__ - INFO - === GÉNÉRATION DU RAPPORT FINAL ===
+2025-12-10 17:59:07,024 - __main__ - INFO - ✅ Rapport final généré
+2025-12-10 18:02:19,845 - __main__ - INFO - Structure de répertoires vérifiée
+2025-12-10 18:02:19,845 - __main__ - INFO - === ÉTAPE 1: PIPELINE DE DONNÉES ===
+2025-12-10 18:02:20,907 - __main__ - INFO - Collecte des données depuis les APIs...
+2025-12-10 18:02:20,907 - core.fetcher - INFO - === Début de la collecte API ===
+2025-12-10 18:02:20,907 - core.fetcher - INFO - Collecte TMDb...
+2025-12-10 18:02:20,907 - core.fetcher - ERROR - TMDB_API_KEY manquante (None). Vérifie ton fichier .env.
+2025-12-10 18:02:20,907 - core.fetcher - INFO - TMDb: 0 éléments récupérés
+2025-12-10 18:02:20,907 - core.fetcher - INFO - Collecte OMDb...
+2025-12-10 18:02:20,907 - core.fetcher - ERROR - OMDB_API_KEY manquante (None). Vérifie ton fichier .env.
+2025-12-10 18:02:20,907 - core.fetcher - INFO - OMDb: 0 éléments récupérés
+2025-12-10 18:02:20,907 - core.fetcher - INFO - Collecte TVMaze...
+2025-12-10 18:02:21,041 - core.fetcher - INFO - FETCH tvmaze - https://api.tvmaze.com/shows/1 - status=200 latency=0.135s
+2025-12-10 18:02:21,127 - core.fetcher - INFO - FETCH tvmaze - https://api.tvmaze.com/shows/82 - status=200 latency=0.086s
+2025-12-10 18:02:21,214 - core.fetcher - INFO - FETCH tvmaze - https://api.tvmaze.com/shows/431 - status=200 latency=0.087s
+2025-12-10 18:02:21,301 - core.fetcher - INFO - FETCH tvmaze - https://api.tvmaze.com/shows/169 - status=200 latency=0.085s
+2025-12-10 18:02:21,385 - core.fetcher - INFO - FETCH tvmaze - https://api.tvmaze.com/shows/143 - status=200 latency=0.084s
+2025-12-10 18:02:21,385 - core.fetcher - INFO - Données brutes sauvegardées dans data\raw\tvmaze_shows_raw.json
+2025-12-10 18:02:21,386 - core.fetcher - INFO - TVMaze: 5 éléments récupérés
+2025-12-10 18:02:21,386 - core.fetcher - INFO - Stats API sauvegardées : data\raw\api_stats.json
+2025-12-10 18:02:21,386 - core.fetcher - INFO - === Collecte terminée ===
+2025-12-10 18:02:21,386 - __main__ - INFO - Nettoyage et structuration des données...
+2025-12-10 18:02:21,388 - core.cleaner - INFO - TMDb nettoyé : 40 enregistrements
+2025-12-10 18:02:21,388 - core.cleaner - INFO - OMDb nettoyé : 5 enregistrements
+2025-12-10 18:02:21,401 - core.cleaner - INFO - TVMaze nettoyé : 5 enregistrements
+2025-12-10 18:02:21,401 - core.cleaner - INFO - Total enregistrements nettoyés : 50
+2025-12-10 18:02:21,404 - core.cleaner - INFO - Format ML sauvegardé : data\processed\clean_data_ml.json
+2025-12-10 18:02:21,404 - __main__ - INFO - ✅ Pipeline de données terminé
+2025-12-10 18:02:21,404 - __main__ - INFO - === ÉTAPE 2: MACHINE LEARNING ===
+2025-12-10 18:02:21,519 - __main__ - INFO - Extraction des features TF-IDF...
+2025-12-10 18:02:21,526 - core.features - INFO - Données chargées: 50 textes de 3 sources
+2025-12-10 18:02:21,526 - core.features - INFO - Création de la matrice TF-IDF...
+2025-12-10 18:02:21,532 - core.features - INFO - Matrice TF-IDF créée: 50 documents x 189 features
+2025-12-10 18:02:21,532 - core.features - INFO - Densité de la matrice: 0.0537
+2025-12-10 18:02:21,534 - core.features - INFO - Features sauvegardées: data/processed/features.npz
+2025-12-10 18:02:21,537 - core.features - INFO - Vectorizer sauvegardé: data/models/vectorizer.pkl
+2025-12-10 18:02:21,537 - __main__ - INFO - Entraînement du modèle ML...
+2025-12-10 18:02:21,537 - core.model - INFO - Entraînement K-Means avec 5 clusters...
+2025-12-10 18:02:25,035 - core.model - INFO - Clustering terminé. Silhouette score: 0.018
+2025-12-10 18:02:25,035 - core.model - INFO - Distribution des clusters: Counter({np.int32(0): 13, np.int32(4): 13, np.int32(2): 12, np.int32(3): 8, np.int32(1): 4})
+2025-12-10 18:02:25,035 - core.model - INFO - Analyse des clusters terminée pour 5 clusters
+2025-12-10 18:02:25,037 - core.model - INFO - Modèle sauvegardé: data/models/model.pkl
+2025-12-10 18:02:25,037 - core.model - INFO - Résultats sauvegardés: data/processed/ml_results.json
+2025-12-10 18:02:25,038 - __main__ - INFO - Test du système de recommandation...
+2025-12-10 18:02:25,046 - core.recommender - INFO - Modèles chargés: 50 films disponibles
+2025-12-10 18:02:25,048 - core.recommender - INFO - Recherche de films similaires à: 'epic space adventure'
+2025-12-10 18:02:25,051 - core.recommender - INFO - Top 3 recommandations trouvées
+2025-12-10 18:02:25,051 - core.recommender - INFO - Recherche de films similaires à: 'funny superhero comedy'
+2025-12-10 18:02:25,054 - core.recommender - INFO - Top 3 recommandations trouvées
+2025-12-10 18:02:25,054 - core.recommender - INFO - Recherche de films similaires à: 'scary horror monster'
+2025-12-10 18:02:25,057 - core.recommender - INFO - Top 3 recommandations trouvées
+2025-12-10 18:02:25,057 - core.recommender - INFO - Recherche de films similaires à: 'action car racing'
+2025-12-10 18:02:25,061 - core.recommender - INFO - Top 3 recommandations trouvées
+2025-12-10 18:02:25,061 - core.recommender - INFO - Rapport de recommandations créé
+2025-12-10 18:02:25,061 - __main__ - INFO - ✅ Pipeline ML terminé
+2025-12-10 18:02:25,063 - __main__ - INFO - === ÉTAPE 3: ANALYTICS & VISUALISATION ===
+2025-12-10 18:02:25,376 - __main__ - INFO - Génération des visualisations...
+2025-12-10 18:02:25,376 - core.viz - INFO - === Module viz.py - À IMPLÉMENTER PAR LYES ===
+2025-12-10 18:02:25,376 - core.viz - WARNING - ⚠️  Les visualisations ne sont pas encore générées.
+2025-12-10 18:02:25,376 - core.viz - WARNING - ⚠️  Lyes doit implémenter les fonctions de ce module.
+2025-12-10 18:02:25,376 - __main__ - INFO - ✅ Pipeline analytics terminé
+2025-12-10 18:02:25,376 - __main__ - INFO - === GÉNÉRATION DU RAPPORT FINAL ===
+2025-12-10 18:02:25,378 - __main__ - INFO - ✅ Rapport final généré
