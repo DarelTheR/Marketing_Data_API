@@ -217,10 +217,29 @@ def run_cleaning() -> Path:
     et sauvegarde un fichier JSON unique dans data/processed/clean_data.json
     """
     records = build_clean_dataset()
+    
+    # Format original (pour Lyes/analyse)
     out_path = PROCESSED_DIR / "clean_data.json"
-
     with out_path.open("w", encoding="utf-8") as f:
         json.dump(records, f, ensure_ascii=False, indent=2)
-
-    logger.info("Fichier nettoyé créé : %s", out_path)
+    
+    # Format pour ML (pour Ruben)
+    ml_path = PROCESSED_DIR / "clean_data_ml.json"
+    save_for_ml_pipeline(records, ml_path)
+    
     return out_path
+
+def save_for_ml_pipeline(records: List[Dict], output_path: Path) -> None:
+    """
+    Sauvegarde au format attendu par le pipeline ML (Ruben).
+    """
+    ml_format = {
+        "texts": [r["clean_text"] for r in records],
+        "sources": [r["source"] for r in records],
+        "titles": [r["title"] for r in records]
+    }
+    
+    with output_path.open("w", encoding="utf-8") as f:
+        json.dump(ml_format, f, indent=2, ensure_ascii=False)
+    
+    logger.info(f"Format ML sauvegardé : {output_path}")
