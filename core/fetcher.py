@@ -43,7 +43,7 @@ def fetch_with_logging(
     :param url: URL complète
     :param params: paramètres query string (dict)
     :param timeout: timeout en secondes
-    :return: dictionnaire JSON ou None en cas d’erreur
+    :return: dictionnaire JSON ou None en cas d'erreur
     """
     start = time.time()
     try:
