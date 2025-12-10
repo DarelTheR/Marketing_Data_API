@@ -1,0 +1,57 @@
+2025-12-10 00:24:03,722 [INFO] core.fetcher - === Début de la collecte API ===
+2025-12-10 00:24:04,143 [INFO] core.fetcher - FETCH tmdb - https://api.themoviedb.org/3/trending/movie/week?api_key=e1c971e9aceac0f3784c3a3d15871a5e&page=1&language=en-US - status=200 latency=0.421s
+2025-12-10 00:24:04,506 [INFO] core.fetcher - FETCH tmdb - https://api.themoviedb.org/3/trending/movie/week?api_key=e1c971e9aceac0f3784c3a3d15871a5e&page=2&language=en-US - status=200 latency=0.362s
+2025-12-10 00:24:04,507 [INFO] core.fetcher - Données brutes sauvegardées dans data\raw\tmdb_trending_raw.json
+2025-12-10 00:24:04,508 [INFO] core.fetcher - TMDb: 40 éléments récupérés
+2025-12-10 00:24:04,675 [INFO] core.fetcher - FETCH omdb - http://www.omdbapi.com/?apikey=5290d92&t=Inception&plot=full - status=200 latency=0.167s
+2025-12-10 00:24:04,839 [INFO] core.fetcher - FETCH omdb - http://www.omdbapi.com/?apikey=5290d92&t=The+Matrix&plot=full - status=200 latency=0.163s
+2025-12-10 00:24:04,985 [INFO] core.fetcher - FETCH omdb - http://www.omdbapi.com/?apikey=5290d92&t=Fight+Club&plot=full - status=200 latency=0.146s
+2025-12-10 00:24:05,148 [INFO] core.fetcher - FETCH omdb - http://www.omdbapi.com/?apikey=5290d92&t=Interstellar&plot=full - status=200 latency=0.163s
+2025-12-10 00:24:05,307 [INFO] core.fetcher - FETCH omdb - http://www.omdbapi.com/?apikey=5290d92&t=The+Godfather&plot=full - status=200 latency=0.159s
+2025-12-10 00:24:05,308 [INFO] core.fetcher - Données brutes sauvegardées dans data\raw\omdb_titles_raw.json
+2025-12-10 00:24:05,308 [INFO] core.fetcher - OMDb: 5 éléments récupérés
+2025-12-10 00:24:05,646 [INFO] core.fetcher - FETCH tvmaze - https://api.tvmaze.com/shows/1 - status=200 latency=0.337s
+2025-12-10 00:24:05,987 [INFO] core.fetcher - FETCH tvmaze - https://api.tvmaze.com/shows/82 - status=200 latency=0.340s
+2025-12-10 00:24:06,303 [INFO] core.fetcher - FETCH tvmaze - https://api.tvmaze.com/shows/431 - status=200 latency=0.315s
+2025-12-10 00:24:06,620 [INFO] core.fetcher - FETCH tvmaze - https://api.tvmaze.com/shows/169 - status=200 latency=0.316s
+2025-12-10 00:24:06,914 [INFO] core.fetcher - FETCH tvmaze - https://api.tvmaze.com/shows/143 - status=200 latency=0.293s
+2025-12-10 00:24:06,916 [INFO] core.fetcher - Données brutes sauvegardées dans data\raw\tvmaze_shows_raw.json
+2025-12-10 00:24:06,916 [INFO] core.fetcher - TVMaze: 5 éléments récupérés
+2025-12-10 00:24:06,916 [INFO] core.fetcher - === Collecte terminée ===
+2025-12-10 00:24:06,928 [INFO] core.cleaner - TMDb nettoyé : 40 enregistrements
+2025-12-10 00:24:06,936 [INFO] core.cleaner - OMDb nettoyé : 5 enregistrements
+2025-12-10 00:24:06,946 [INFO] core.cleaner - TVMaze nettoyé : 5 enregistrements
+2025-12-10 00:24:06,946 [INFO] core.cleaner - Total enregistrements nettoyés : 50
+2025-12-10 00:24:06,947 [INFO] core.cleaner - Fichier nettoyé créé : data\processed\clean_data.json
+2025-12-10 01:09:49,548 [INFO] core.fetcher - === Début de la collecte API ===
+2025-12-10 01:09:49,936 [INFO] core.fetcher - FETCH tmdb - https://api.themoviedb.org/3/trending/movie/week?api_key=e1c971e9aceac0f3784c3a3d15871a5e&page=1&language=en-US - status=200 latency=0.388s
+2025-12-10 01:09:50,296 [INFO] core.fetcher - FETCH tmdb - https://api.themoviedb.org/3/trending/movie/week?api_key=e1c971e9aceac0f3784c3a3d15871a5e&page=2&language=en-US - status=200 latency=0.358s
+2025-12-10 01:09:50,307 [INFO] core.fetcher - Données brutes sauvegardées dans data\raw\tmdb_trending_raw.json
+2025-12-10 01:09:50,307 [INFO] core.fetcher - TMDb: 40 éléments récupérés
+2025-12-10 01:09:50,479 [INFO] core.fetcher - FETCH omdb - http://www.omdbapi.com/?apikey=5290d92&t=Inception&plot=full - status=200 latency=0.172s
+2025-12-10 01:09:50,631 [INFO] core.fetcher - FETCH omdb - http://www.omdbapi.com/?apikey=5290d92&t=The+Matrix&plot=full - status=200 latency=0.151s
+2025-12-10 01:09:50,813 [INFO] core.fetcher - FETCH omdb - http://www.omdbapi.com/?apikey=5290d92&t=Fight+Club&plot=full - status=200 latency=0.182s
+2025-12-10 01:09:50,977 [INFO] core.fetcher - FETCH omdb - http://www.omdbapi.com/?apikey=5290d92&t=Interstellar&plot=full - status=200 latency=0.163s
+2025-12-10 01:09:51,143 [INFO] core.fetcher - FETCH omdb - http://www.omdbapi.com/?apikey=5290d92&t=The+Godfather&plot=full - status=200 latency=0.166s
+2025-12-10 01:09:51,145 [INFO] core.fetcher - Données brutes sauvegardées dans data\raw\omdb_titles_raw.json
+2025-12-10 01:09:51,146 [INFO] core.fetcher - OMDb: 5 éléments récupérés
+2025-12-10 01:09:51,462 [INFO] core.fetcher - FETCH tvmaze - https://api.tvmaze.com/shows/1 - status=200 latency=0.316s
+2025-12-10 01:09:51,746 [INFO] core.fetcher - FETCH tvmaze - https://api.tvmaze.com/shows/82 - status=200 latency=0.284s
+2025-12-10 01:09:52,046 [INFO] core.fetcher - FETCH tvmaze - https://api.tvmaze.com/shows/431 - status=200 latency=0.298s
+2025-12-10 01:09:52,327 [INFO] core.fetcher - FETCH tvmaze - https://api.tvmaze.com/shows/169 - status=200 latency=0.280s
+2025-12-10 01:09:52,661 [INFO] core.fetcher - FETCH tvmaze - https://api.tvmaze.com/shows/143 - status=200 latency=0.333s
+2025-12-10 01:09:52,668 [INFO] core.fetcher - Données brutes sauvegardées dans data\raw\tvmaze_shows_raw.json
+2025-12-10 01:09:52,668 [INFO] core.fetcher - TVMaze: 5 éléments récupérés
+2025-12-10 01:09:52,668 [INFO] core.fetcher - === Collecte terminée ===
+2025-12-10 01:09:52,680 [INFO] core.cleaner - TMDb nettoyé : 40 enregistrements
+2025-12-10 01:09:52,688 [INFO] core.cleaner - OMDb nettoyé : 5 enregistrements
+2025-12-10 01:09:52,698 [INFO] core.cleaner - TVMaze nettoyé : 5 enregistrements
+2025-12-10 01:09:52,698 [INFO] core.cleaner - Total enregistrements nettoyés : 50
+2025-12-10 01:09:52,699 [INFO] core.cleaner - Fichier nettoyé créé : data\processed\clean_data.json
+2025-12-10 01:09:52,699 [INFO] core.analyzer - === Début de l'analyse (analyzer) ===
+2025-12-10 01:09:52,709 [INFO] core.analyzer - clean_data chargé : 50 lignes, 6 colonnes
+2025-12-10 01:09:52,717 [INFO] core.analyzer - KPIs de base calculés.
+2025-12-10 01:09:52,718 [INFO] core.analyzer - Top 100 mots-clés calculés.
+2025-12-10 01:09:52,719 [INFO] core.analyzer - summary.json sauvegardé : reports\summary.json
+2025-12-10 01:09:52,723 [INFO] core.analyzer - keywords.csv sauvegardé : reports\keywords.csv
+2025-12-10 01:09:52,723 [INFO] core.analyzer - === Analyse terminée ===

@@ -1,0 +1,42 @@
+{
+  "n_documents": 50,
+  "sources_counts": {
+    "tmdb": 40,
+    "omdb": 5,
+    "tvmaze": 5
+  },
+  "languages_counts": {
+    "en": 40,
+    "english": 5,
+    "ja": 2,
+    "no": 2,
+    "fr": 1
+  },
+  "avg_raw_length": 323.36,
+  "avg_clean_length": 215.1,
+  "median_clean_length": 192.0,
+  "min_clean_length": 84,
+  "max_clean_length": 519,
+  "top_keywords": {
+    "s": 28,
+    "new": 15,
+    "family": 15,
+    "world": 14,
+    "life": 12,
+    "man": 9,
+    "young": 7,
+    "love": 6,
+    "town": 6,
+    "dangerous": 5,
+    "past": 5,
+    "fight": 5,
+    "powerful": 5,
+    "cobb": 5,
+    "neo": 5,
+    "vito": 5,
+    "war": 4,
+    "battle": 4,
+    "zootopia": 4,
+    "case": 4
+  }
+}
