@@ -185,12 +185,27 @@ def fetch_tvmaze_shows(show_ids: List[int]) -> List[Dict[str, Any]]:
 def run_all_fetchers() -> None:
     """
     Lance l'ensemble des collectes (TMDb, OMDb, TVMaze).
+    Collecte aussi les statistiques des appels API.
     """
     logger.info("=== Début de la collecte API ===")
-
-    tmdb_data = fetch_tmdb_trending(pages=2)  # par exemple 2 pages
+    
+    # Variables pour stocker les stats
+    all_latencies = []
+    all_status_codes = []
+    all_timestamps = []
+    
+    # TMDb - 2 pages
+    logger.info("Collecte TMDb...")
+    tmdb_start = time.time()
+    tmdb_data = fetch_tmdb_trending(pages=2)
+    tmdb_latency = time.time() - tmdb_start
+    all_latencies.append(tmdb_latency)
+    all_status_codes.append(200 if tmdb_data else 500)  # 200 si succès, 500 si échec
+    all_timestamps.append(time.strftime("%Y-%m-%d %H:%M:%S"))
     logger.info("TMDb: %d éléments récupérés", len(tmdb_data))
-
+    
+    # OMDb - Plusieurs titres
+    logger.info("Collecte OMDb...")
     omdb_titles = [
         "Inception",
         "The Matrix",
@@ -198,11 +213,51 @@ def run_all_fetchers() -> None:
         "Interstellar",
         "The Godfather",
     ]
+    omdb_start = time.time()
     omdb_data = fetch_omdb_titles(omdb_titles)
+    omdb_latency = time.time() - omdb_start
+    all_latencies.append(omdb_latency)
+    all_status_codes.append(200 if omdb_data else 500)
+    all_timestamps.append(time.strftime("%Y-%m-%d %H:%M:%S"))
     logger.info("OMDb: %d éléments récupérés", len(omdb_data))
-
-    tvmaze_ids = [1, 82, 431, 169, 143]  # IDs d'exemple
+    
+    # TVMaze - IDs qu'on va fetch pour la démo
+    logger.info("Collecte TVMaze...")
+    tvmaze_ids = [1, 82, 431, 169, 143]
+    tvmaze_start = time.time()
     tvmaze_data = fetch_tvmaze_shows(tvmaze_ids)
+    tvmaze_latency = time.time() - tvmaze_start
+    all_latencies.append(tvmaze_latency)
+    all_status_codes.append(200 if tvmaze_data else 500)
+    all_timestamps.append(time.strftime("%Y-%m-%d %H:%M:%S"))
     logger.info("TVMaze: %d éléments récupérés", len(tvmaze_data))
-
+    
+    # Créer le dictionnaire de statistiques
+    api_stats = {
+        "latencies": all_latencies,
+        "status_codes": all_status_codes,
+        "timestamps": all_timestamps,
+        "sources_count": {
+            "tmdb": len(tmdb_data),
+            "omdb": len(omdb_data),
+            "tvmaze": len(tvmaze_data)
+        }
+    }
+    
+    # Sauvegarder les stats dans un fichier JSON
+    stats_path = config.RAW_DIR / "api_stats.json"
+    with stats_path.open("w", encoding="utf-8") as f:
+        json.dump(api_stats, f, indent=2, ensure_ascii=False)
+    logger.info(f"Stats API sauvegardées : {stats_path}")
+    
     logger.info("=== Collecte terminée ===")
+
+def save_api_stats(stats: Dict[str, Any]) -> Path:
+    """
+    Sauvegarde les statistiques des appels API.
+    """
+    stats_path = config.RAW_DIR / "api_stats.json"
+    with stats_path.open("w", encoding="utf-8") as f:
+        json.dump(stats, f, indent=2, ensure_ascii=False)
+    logger.info(f"Stats API sauvegardées : {stats_path}")
+    return stats_path
