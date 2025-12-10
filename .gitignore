@@ -15,24 +15,6 @@ ENV/
 .vscode/
 .idea/
 
-# Données générées par le pipeline
-data/raw/*.json
-data/processed/*.json
-data/processed/*.npz
-data/models/*.pkl
-
-# Rapports générés
-reports/*.json
-reports/*.csv
-reports/*.pdf
-
-# Logs
-logs/*.log
-
-# Visualisations
-figs/*.png
-figs/*.svg
-
 # macOS
 .DS_Store
 

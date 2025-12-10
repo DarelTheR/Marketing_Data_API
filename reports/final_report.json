@@ -1,0 +1,75 @@
+{
+  "project_info": {
+    "name": "Marketing AI - Analyse de Films",
+    "completion_date": "2025-12-10T19:43:26.543524",
+    "team": "Trinôme Data Science"
+  },
+  "data_summary": {
+    "n_documents": 50,
+    "sources_counts": {
+      "tmdb": 40,
+      "omdb": 5,
+      "tvmaze": 5
+    },
+    "languages_counts": {
+      "en": 40,
+      "english": 5,
+      "ja": 2,
+      "no": 2,
+      "fr": 1
+    },
+    "avg_raw_length": 323.36,
+    "avg_clean_length": 278.26,
+    "median_clean_length": 256.5,
+    "min_clean_length": 92,
+    "max_clean_length": 813,
+    "top_keywords": {
+      "of": 69,
+      "his": 41,
+      "is": 32,
+      "with": 29,
+      "s": 28,
+      "he": 20,
+      "when": 20,
+      "their": 20,
+      "her": 20,
+      "by": 17,
+      "that": 17,
+      "new": 15,
+      "from": 15,
+      "family": 15,
+      "world": 14,
+      "as": 14,
+      "into": 12,
+      "life": 12,
+      "has": 10,
+      "one": 10
+    }
+  },
+  "ml_results": {
+    "model_type": "clustering",
+    "performance": {
+      "silhouette_score": 0.01560117387724166,
+      "n_clusters": 3
+    }
+  },
+  "deliverables": {
+    "models": [
+      "data/models/model.pkl",
+      "data/models/vectorizer.pkl"
+    ],
+    "reports": [
+      "reports/summary.json",
+      "reports/keywords.csv",
+      "reports/dashboard.pdf"
+    ],
+    "visualizations": [
+      "figs/sources_bar.png",
+      "figs/top_keywords.png",
+      "figs/latency_box.png",
+      "figs/status_codes.png",
+      "figs/timeline_activity.png",
+      "figs/ml_clusters.png"
+    ]
+  }
+}

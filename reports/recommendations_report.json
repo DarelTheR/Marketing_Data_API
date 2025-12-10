@@ -1,0 +1,61 @@
+{
+  "total_films": 50,
+  "sample_recommendations": {
+    "dangerous battle brutal crime": [
+      {
+        "title": "Chainsaw Man - The Movie: Reze Arc",
+        "similarity_score": 0.2566397657887688
+      },
+      {
+        "title": "TRON: Ares",
+        "similarity_score": 0.14509109829610653
+      },
+      {
+        "title": "Hunting Season",
+        "similarity_score": 0.14218828990917007
+      }
+    ],
+    "love family daughter life": [
+      {
+        "title": "One Battle After Another",
+        "similarity_score": 0.24534236013964322
+      },
+      {
+        "title": "Train Dreams",
+        "similarity_score": 0.23631842651150714
+      },
+      {
+        "title": "Hunting Season",
+        "similarity_score": 0.17155413753959967
+      }
+    ],
+    "breaking bad criminal world": [
+      {
+        "title": "Breaking Bad",
+        "similarity_score": 0.33668048834568304
+      },
+      {
+        "title": "Hunting Season",
+        "similarity_score": 0.15515635033835465
+      },
+      {
+        "title": "TRON: Ares",
+        "similarity_score": 0.14694394679265893
+      }
+    ],
+    "confront dangerous past city": [
+      {
+        "title": "The Housemaid",
+        "similarity_score": 0.17697686724830658
+      },
+      {
+        "title": "Hunting Season",
+        "similarity_score": 0.16821917631343045
+      },
+      {
+        "title": "Friends",
+        "similarity_score": 0.15821865777819363
+      }
+    ]
+  }
+}
