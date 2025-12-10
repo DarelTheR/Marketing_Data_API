@@ -112,11 +112,7 @@ def run_analytics_pipeline():
     logger.info("=== ÉTAPE 3: ANALYTICS & VISUALISATION ===")
     
     try:
-        from core import analyzer, viz
-        
-        # Analyses descriptives
-        logger.info("Calcul des analyses descriptives...")
-        analyzer.main()
+        from core import viz
         
         # Génération des visualisations
         logger.info("Génération des visualisations...")
