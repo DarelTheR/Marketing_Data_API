@@ -184,15 +184,15 @@ python core/recommender.py
 
 ## 👥 Équipe & Répartition
 
-### Personne 1 - Data Pipeline
+### Darel - Data Pipeline
 - `fetcher.py`, `cleaner.py`, `config.py`
 - Collecte APIs + nettoyage NLP
 
-### Personne 2 - Machine Learning  
+### Ruben - Machine Learning  
 - `features.py`, `model.py`, `recommender.py`
 - TF-IDF + clustering + recommandation
 
-### Personne 3 - Analytics & Viz
+### Lyes - Analytics & Viz
 - `analyzer.py`, `viz.py`  
 - KPIs + 6 visualisations + dashboard
 

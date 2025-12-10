@@ -200,15 +200,12 @@ def main():
     # Exécution séquentielle des 3 parties
     success = True
     
-    # Partie 1: Data Pipeline (Personne 1)
     if not run_data_pipeline():
         success = False
     
-    # Partie 2: Machine Learning (Personne 2) 
     if success and not run_ml_pipeline():
         success = False
     
-    # Partie 3: Analytics & Viz (Personne 3)
     if success and not run_analytics_pipeline():
         success = False
     
