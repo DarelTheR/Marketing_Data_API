@@ -4,57 +4,57 @@
     "dangerous battle brutal crime": [
       {
         "title": "Chainsaw Man - The Movie: Reze Arc",
-        "similarity_score": 0.2566397657887688
+        "similarity_score": 0.23040887584520064
       },
       {
-        "title": "TRON: Ares",
-        "similarity_score": 0.14509109829610653
+        "title": "Troll 2",
+        "similarity_score": 0.17513745696321625
       },
       {
         "title": "Hunting Season",
-        "similarity_score": 0.14218828990917007
+        "similarity_score": 0.16905663874481144
       }
     ],
     "love family daughter life": [
       {
         "title": "One Battle After Another",
-        "similarity_score": 0.24534236013964322
+        "similarity_score": 0.2505410868682951
       },
       {
-        "title": "Train Dreams",
-        "similarity_score": 0.23631842651150714
+        "title": "Eternity",
+        "similarity_score": 0.21443381482316182
       },
       {
-        "title": "Hunting Season",
-        "similarity_score": 0.17155413753959967
+        "title": "Hamnet",
+        "similarity_score": 0.1982386426258669
       }
     ],
     "breaking bad criminal world": [
       {
         "title": "Breaking Bad",
-        "similarity_score": 0.33668048834568304
+        "similarity_score": 0.457851476188377
       },
       {
         "title": "Hunting Season",
-        "similarity_score": 0.15515635033835465
+        "similarity_score": 0.15480779199645042
       },
       {
-        "title": "TRON: Ares",
-        "similarity_score": 0.14694394679265893
+        "title": "Now You See Me: Now You Don't",
+        "similarity_score": 0.13556114267337016
       }
     ],
     "confront dangerous past city": [
       {
-        "title": "The Housemaid",
-        "similarity_score": 0.17697686724830658
-      },
-      {
         "title": "Hunting Season",
-        "similarity_score": 0.16821917631343045
+        "similarity_score": 0.19560770943337644
       },
       {
         "title": "Friends",
-        "similarity_score": 0.15821865777819363
+        "similarity_score": 0.17702030109916997
+      },
+      {
+        "title": "Troll 2",
+        "similarity_score": 0.17336819784315147
       }
     ]
   }

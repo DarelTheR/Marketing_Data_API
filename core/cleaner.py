@@ -24,7 +24,17 @@ FR_STOPWORDS = {
 
 
 MINIMAL_EN_STOPWORDS = {
-    "the", "a", "an", "and", "or", "but", "in", "on", "at", "to", "for"
+    "the", "a", "an", "and", "or", "but", "in", "on", "at", "to", "for",
+    "of", "from", "by", "with", "is", "s", "was", "were", "one", "has", "being",
+    "are", "this", "that", "it", "they", "he", "she", "him", "her", "his", "hers",
+    "i", "you", "your", "yours", "we", "our", "ours", "you", "your", "yours",
+    "my", "your", "ours", "me", "him", "her", "his", "hers", "it", "its", "their",
+    "them", "what", "which", "who", "whom", "this", "that", "these", "those",
+    "am", "is", "are", "was", "were", "be", "been", "being", "have", "has", "had",
+    "do", "does", "did", "but", "at", "by", "with", "from", "here", "when", "where",
+    "how", "all", "any", "both", "each", "few", "more", "some", "such", "no", "nor",
+    "not", "only", "own", "same", "so", "than", "too", "very", "s", "t", "can", "will",
+    "just", "don", "should", "now", "as", "after", "off", "into", "most", "if", "out", "must"
 }
 
 STOPWORDS = FR_STOPWORDS | MINIMAL_EN_STOPWORDS 
